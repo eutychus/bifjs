@@ -1,5 +1,5 @@
 # bifjs
-Read Roku BIF images for display in browser
+Read Roku BIF images for display in browser or in a web video player such as clappr.
 
 See example:
 
