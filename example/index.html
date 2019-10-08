@@ -11,5 +11,27 @@
     <div id="bif-cycle" style="width: 240px; height: 135px"></div>
     <h2>All Frames</h2>
     <div id="bif-frames"></div>
+    <h2>Use with clappr</h2>
+    You can add video thumbnails from BIF files using the <a href="https://github.com/clappr/clappr">clappr</a> player and the <a href="https://github.com/tjenkinson/clappr-thumbnails-plugin">clappr thumbnails plugin</a>.  Here's a quick code sample.
+    <br />
+    <code style="white-space: pre; background-color: #eee; display: inline-block;">
+  if(bifurl) {
+    console.log(bifurl);
+    thisbif = new BIFReader(bifurl);
+    thisbif.load(function(bif_reader, idx) {
+      console.log('bif loaded');
+      console.log([thisbif.count, thisbif.multiplier]);
+      var thumbnailsPlugin = player.getPlugin(&quot;scrub-thumbnails&quot;);
+      for(var i = 0; i &lt; thisbif.count; i++) {
+        thumbnailsPlugin.addThumbnail({url: thisbif.idx[i][1], time:(i*thisbif.multiplier/1000)});
+      }
+
+    }, function(progress) {
+      console.log(progress);
+    });
+  }
+    </code>
+
+
   </body>
 </html>
